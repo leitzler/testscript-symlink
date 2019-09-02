@@ -1,0 +1,7 @@
+# This works fine since it returns the symlinked path
+exec pwd
+stdout ^$WORK
+
+# But any program that works with the evaluated path (like vim or pwd -P) will fail in macOS
+exec pwd -P
+stdout ^$WORK
